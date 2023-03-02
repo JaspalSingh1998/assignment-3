@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HiMenuAlt3, HiOutlineSun } from "react-icons/hi";
+import { HiMenuAlt3, HiOutlineSun, HiNewspaper, HiLogout } from "react-icons/hi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { AiOutlineUser } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -9,13 +9,14 @@ const Navbar = () => {
     { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
     { name: "Users", link: "/users", icon: AiOutlineUser },
     { name: "Weather", link: "/weather", icon: HiOutlineSun },
+    { name: "News", link: "/news", icon: HiNewspaper },
   ];
   const [open, setOpen] = useState(true);
   return (
       <div
         className={`bg-[#0e0e0e] min-h-screen ${
           open ? "w-72" : "w-16"
-        } duration-500 text-gray-100 px-4`}
+        } duration-500 text-gray-100 px-4 relative overflow-y-hidden`}
       >
         <div className="py-3 flex justify-end">
           <HiMenuAlt3
@@ -54,6 +55,10 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
+        <button className="absolute left-6 mt-3.5 flex gap-3.5 items-center">
+          <div>{React.createElement(HiLogout, { size: "20" })}</div>        
+          <p className={`${!open && "hidden"}`}>Sign out</p>
+        </button>
       </div>
   );
 };

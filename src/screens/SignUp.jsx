@@ -24,6 +24,7 @@ const SignUp = () => {
         setDoc(doc(firestore, "users", auth.currentUser.uid), {
           name,
           email,
+          createdAt: new Date()
         })
         navigate('/')
       }).catch((error) => {
