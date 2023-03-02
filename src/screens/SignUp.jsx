@@ -1,6 +1,9 @@
+import { updateProfile } from 'firebase/auth';
 import React, {useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
+import { auth, firestore } from '../firebase';
+import { doc, setDoc } from "firebase/firestore"; 
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -14,8 +17,19 @@ const SignUp = () => {
     e.preventDefault();
     setError('');
     try {
-      await createUser(email, password);
-      navigate('/account')
+      await createUser(email, password)
+      updateProfile(auth.currentUser, {
+        displayName: name
+      }).then(() => {
+        setDoc(doc(firestore, "users", auth.currentUser.uid), {
+          name,
+          email,
+        })
+        navigate('/')
+      }).catch((error) => {
+        console.log(error);
+        console.log('Something Went Wrong')
+      });
     } catch (e) {
       setError(e.message);
       console.log(e.message);
@@ -24,7 +38,7 @@ const SignUp = () => {
 
 
   return (
-    <div className='min-h-screen flex flex-col items-center justify-center bg-gray-50 space-y-10 py-12 px-4 sm:px-6 lg:px-8'>
+    <div className='basis-full min-h-screen flex flex-col items-center justify-center bg-gray-50 space-y-10 py-12 px-4 sm:px-6 lg:px-8'>
       <div>
         <h1 className='mt-6 text-center text-3xl font-extrabold text-gray-900'>Sign up with us</h1>
         <p className="mt-2 text-center text-sm text-gray-600">
