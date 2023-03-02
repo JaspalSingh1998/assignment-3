@@ -68,8 +68,8 @@ const Home = () => {
             </div>
             <h2 className='mb-2 font-semi'>{(weatherData?.main?.temp - 273.15).toFixed(0)} <span>&#176;</span></h2>
             <div className='flex items-center justify-between'>
-              <p className='font-thin capitalize'>{weatherData?.weather[0].description}</p> 
-              <img src={`http://openweathermap.org/img/w/${weatherData?.weather[0].icon}.png`} alt="Weather Condition" /> 
+              {/* <p className='font-thin capitalize'>{weatherData?.weather[0].description}</p> 
+              <img src={`http://openweathermap.org/img/w/${weatherData?.weather[0].icon}.png`} alt="Weather Condition" />  */}
             </div>
           </div>
           <div className='border-2 border-rose-500 rounded-md p-4'>

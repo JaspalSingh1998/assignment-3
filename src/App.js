@@ -5,6 +5,7 @@ import Home from "./screens/Home";
 import { AuthContextProvider } from "./context/AuthContext";
 import ProtectedRoutes from "./Routes/ProtectedRoutes";
 import Navbar from "./screens/Navbar";
+import News from "./screens/News";
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
                     <Home />
                   </ProtectedRoutes>
                 }/>
+                <Route exact path="/news" element={
+                  <ProtectedRoutes>
+                    <News />
+                  </ProtectedRoutes>
+                } />
                 <Route exact path="/signin"  element={<SignIn />}/>
                 <Route exact path="/signup"  element={<SignUp />}/>
               </Routes>
