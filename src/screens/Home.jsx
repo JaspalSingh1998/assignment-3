@@ -6,6 +6,7 @@ import axios from 'axios'
 import { getDocs, collection } from 'firebase/firestore';
 import { firestore } from '../firebase';
 import TodoList from './TodoList';
+import Calculator from './Calculator';
 
 const Home = () => {
 
@@ -130,6 +131,7 @@ const Home = () => {
           </table>
         </div>
         <TodoList />
+        <Calculator />
       </div>
     </div>
   )
