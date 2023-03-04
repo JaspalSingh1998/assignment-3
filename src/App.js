@@ -6,6 +6,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import ProtectedRoutes from "./Routes/ProtectedRoutes";
 import Navbar from "./screens/Navbar";
 import News from "./screens/News";
+import Weather from "./screens/Weather";
 
 function App() {
   return (
@@ -23,6 +24,11 @@ function App() {
                 <Route exact path="/news" element={
                   <ProtectedRoutes>
                     <News />
+                  </ProtectedRoutes>
+                } />
+                <Route exact path="/weather" element={
+                  <ProtectedRoutes>
+                    <Weather />
                   </ProtectedRoutes>
                 } />
                 <Route exact path="/signin"  element={<SignIn />}/>

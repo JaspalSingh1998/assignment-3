@@ -5,9 +5,15 @@ import { UserAuth } from '../context/AuthContext';
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleSignIn = () => {
-// 
+  const navigate = useNavigate();
+  const {signIn} = UserAuth()
+  const handleSignIn = async () => {
+    try {
+      await signIn(email, password)
+      navigate('/')
+    } catch (error) {
+      console.log(error)
+    }
   }
 
 
@@ -29,7 +35,7 @@ const SignIn = () => {
           <label className="text-sm font-bold text-gray-600 mb-1" htmlFor="password">Password</label>
           <input className="border rounded-md bg-white px-3 py-2" type="password" name="password" id="password" placeholder="Enter your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         </div>
-        <div className="flex justify-end text-sm">
+        <div className="flex justify-end text-sm hidden">
           <div>
             <a className="text-indigo-600">Forgot your Password?</a>
           </div>

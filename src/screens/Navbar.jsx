@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { HiMenuAlt3, HiOutlineSun, HiNewspaper, HiLogout } from "react-icons/hi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { AiOutlineUser } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const menus = [
@@ -12,6 +13,19 @@ const Navbar = () => {
     { name: "News", link: "/news", icon: HiNewspaper },
   ];
   const [open, setOpen] = useState(true);
+
+  const { logout } = UserAuth();
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    try {
+      await logout()
+      navigate('/signin')
+    } catch (error) {
+      
+    }
+  }
+
   return (
       <div
         className={`bg-[#0e0e0e] min-h-screen ${
@@ -55,7 +69,7 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <button className="absolute left-6 mt-3.5 flex gap-3.5 items-center">
+        <button className="absolute left-6 mt-3.5 flex gap-3.5 items-center" onClick={handleLogout}>
           <div>{React.createElement(HiLogout, { size: "20" })}</div>        
           <p className={`${!open && "hidden"}`}>Sign out</p>
         </button>
