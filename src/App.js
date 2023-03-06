@@ -9,6 +9,7 @@ import News from "./screens/News";
 import Weather from "./screens/Weather";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Colors from "./screens/Colors";
 
 function App() {
   return (
@@ -31,6 +32,11 @@ function App() {
                 <Route exact path="/weather" element={
                   <ProtectedRoutes>
                     <Weather />
+                  </ProtectedRoutes>
+                } />
+                <Route exact path="/colors" element={
+                  <ProtectedRoutes>
+                    <Colors />
                   </ProtectedRoutes>
                 } />
                 <Route exact path="/signin"  element={<SignIn />}/>

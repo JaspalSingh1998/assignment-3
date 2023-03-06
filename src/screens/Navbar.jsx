@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { HiMenuAlt3, HiOutlineSun, HiNewspaper, HiLogout } from "react-icons/hi";
+import { HiMenuAlt3, HiOutlineSun, HiNewspaper, HiLogout, HiColorSwatch } from "react-icons/hi";
 import { MdOutlineDashboard } from "react-icons/md";
-import { AiOutlineUser } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
@@ -11,6 +10,7 @@ const Navbar = () => {
     { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
     { name: "Weather", link: "/weather", icon: HiOutlineSun },
     { name: "News", link: "/news", icon: HiNewspaper },
+    { name: "Colors", link: "/colors", icon: HiColorSwatch },
   ];
   const [open, setOpen] = useState(true);
 
