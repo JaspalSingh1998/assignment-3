@@ -14,7 +14,7 @@ const Navbar = () => {
   ];
   const [open, setOpen] = useState(true);
 
-  const { logout } = UserAuth();
+  const { logout, user } = UserAuth();
   const navigate = useNavigate()
 
   const handleLogout = async () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
       
     }
   }
-
+  if (!user) return;
   return (
       <div
         className={`bg-[#0e0e0e] min-h-screen ${
