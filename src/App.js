@@ -16,7 +16,7 @@ function App() {
       <AuthContextProvider>
           <Router>
             <section className="flex">
-              <Navbar/>
+            <Navbar />
               <Routes>
                 <Route exact path="/"  element={
                   <ProtectedRoutes>

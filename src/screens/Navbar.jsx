@@ -9,7 +9,6 @@ import { toast } from "react-toastify";
 const Navbar = () => {
   const menus = [
     { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
-    { name: "Users", link: "/users", icon: AiOutlineUser },
     { name: "Weather", link: "/weather", icon: HiOutlineSun },
     { name: "News", link: "/news", icon: HiNewspaper },
   ];
