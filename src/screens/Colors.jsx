@@ -20,9 +20,9 @@ const Colors = () => {
   }  
 
   return (
-    <div className='flex flex-col bg-slate-100 w-full'>
+    <div className='flex flex-col bg-gray-800 w-full'>
         <section className="w-full flex flex-col md:flex-row items-center gap-10 p-10">
-            <h3 className='font-bold text-4xl mb-4 md:mb-0'>Color Generator</h3>
+            <h3 className='font-bold text-4xl mb-4 md:mb-0 text-white'>Color Generator</h3>
             <form onSubmit={handleSubmit}>
                 <input type="text" value={color} onChange={(e) => setColor(e.target.value)} placeholder="#f15025" className="p-4 text-md text-gray-400"/>
                 <button className='bg-[#53B1EE] py-4 px-6 text-white text-md'>Submit</button>

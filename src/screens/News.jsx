@@ -19,12 +19,12 @@ const NewsFeed = () => {
 
 
   return (
-    <div className='p-10 container mx-auto'>
-      <h3 className='mt-14 text-center font-bold text-5xl'>News Feed</h3>
+    <div className='p-10 container mx-auto bg-gray-800'>
+      <h3 className='mt-14 text-center font-bold text-5xl text-white'>News Feed</h3>
       <section className='grid md:grid-cols-2 gap-16 my-10'>
         {
           newsFeed.map((news) => (
-            <div key={news.title} className="shadow-md flex justify-between p-4 rounded-lg cursor-pointer" onClick={() => goToNewsArticle(news.url)}>
+            <div key={news.title} className="shadow-md bg-slate-200 flex justify-between p-4 rounded-lg cursor-pointer" onClick={() => goToNewsArticle(news.url)}>
               <div className='mr-10'>
                 <h2 className='font-bold text-2xl mb-4'>{news.title}</h2>  
                 <p className='leading text-xl'>{news.description}</p>

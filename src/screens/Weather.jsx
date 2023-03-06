@@ -56,7 +56,7 @@ const Weather = () => {
                 <h3 className="my-auto mr-auto text-xl text-pink-800 font-bold shadow-md py-1 px-3 
                 rounded-md bg-white bg-opacity-30">forecast</h3>
                 <div className="flex p-2 text-gray-100 bg-gray-600 bg-opacity-30 rounded-lg">
-                <i className="fa fa-map my-auto" aria-hidden="true"></i>
+                <FaMap className="fa fa-map my-auto" aria-hidden="true"/>  
                   <div className="text-right">
                     <p className="font-semibold text-sm ml-2">{city}</p>
                   </div>
@@ -72,8 +72,7 @@ const Weather = () => {
                     onChange={handleChange} 
                     required />
                     <button type="submit" className="z-10">
-                      <i className="fa fa-search text-white -ml-10 border-l my-auto z-10 cursor-pointer p-3" 
-                      aria-hidden="true" type="submit"></i>
+                      <FaSearch className='text-white -ml-10 border-l my-auto z-10 cursor-pointer p-3' aria-hidden="true" type="submit"/>
                     </button>
                   <i className="fa fa-map-marker-alt my-auto cursor-pointer p-3 text-white" aria-hidden="true" onClick={() => {
                     navigator.geolocation.getCurrentPosition(myIP)
