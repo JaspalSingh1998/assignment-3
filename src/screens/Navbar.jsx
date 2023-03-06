@@ -4,6 +4,7 @@ import { MdOutlineDashboard } from "react-icons/md";
 import { AiOutlineUser } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const menus = [
@@ -21,6 +22,7 @@ const Navbar = () => {
     try {
       await logout()
       navigate('/signin')
+      toast.success("Logged Out Successfully!")
     } catch (error) {
       
     }

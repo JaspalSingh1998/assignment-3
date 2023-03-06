@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 import { auth, firestore } from '../firebase';
 import { doc, setDoc } from "firebase/firestore"; 
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -28,12 +29,17 @@ const SignUp = () => {
         })
         navigate('/')
       }).catch((error) => {
-        console.log(error);
-        console.log('Something Went Wrong')
+        console.log(error.code);
       });
     } catch (e) {
       setError(e.message);
-      console.log(e.message);
+      if(e.code === 'auth/email-already-in-use') {
+        toast.error('Email is already taken!')
+      } else if(e.code === 'auth/weak-password') {
+        toast.error('Choose a strong password')
+      } else {
+        toast.error('Something went wrong!')
+      }
     }
   }
 

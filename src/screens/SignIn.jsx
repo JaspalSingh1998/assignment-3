@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { UserAuth } from '../context/AuthContext';
 
 const SignIn = () => {
@@ -10,9 +11,16 @@ const SignIn = () => {
   const handleSignIn = async () => {
     try {
       await signIn(email, password)
+      toast.success("Logged in!")
       navigate('/')
     } catch (error) {
-      console.log(error)
+      if(error.code === 'auth/user-not-found') {
+        toast.error("That user does not exist!")
+      } else if (error.code === 'wrong-password') {
+        toast.error("Invalid email/password!")
+      } else {
+        toast.error('Something Went Wrong!')
+      }
     }
   }
 

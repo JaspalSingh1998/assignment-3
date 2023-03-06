@@ -7,6 +7,8 @@ import ProtectedRoutes from "./Routes/ProtectedRoutes";
 import Navbar from "./screens/Navbar";
 import News from "./screens/News";
 import Weather from "./screens/Weather";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
             </section>
           </Router>
       </AuthContextProvider>
+      <ToastContainer />
     </>
     
   );
