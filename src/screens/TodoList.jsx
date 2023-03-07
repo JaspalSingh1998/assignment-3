@@ -57,32 +57,32 @@ const TodoList = () => {
       });
   };
   return (
-    <div className="mt-10 shadow-md shadow-gray-300 p-8 rounded-md">
+    <div className="mt-10 shadow-md border border-black p-8 rounded-md">
       <p className="text-center font-bold text-lg mb-4">Todo List</p>
       <form className="flex justify-center mb-10">
         <input
           type="text"
           placeholder="Enter Todo"
-          className="text-xl text-orange-800 placeholder-orange-400 py-2 px-5 bg-orange-100 rounded-l-full outline-orange-300"
+          className="text-xl text-gray-800 placeholder-gray-400 py-2 px-5 bg-gray-100 rounded-l-full outline-gray-300"
           value={task}
           onChange={(e) => setTask(e.target.value)}
         />
         <button
           type="submit"
-          className="text-xl text-orange-100 placeholder-orange-400 py-2 pr-5 pl-4 bg-orange-500 rounded-r-full"
+          className="text-xl text-gray-100 placeholder-gray-400 py-2 pr-5 pl-4 bg-black rounded-r-full"
           onClick={handleSubmit}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
+            className="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M12 4v16m8-8H4"
             />
           </svg>
@@ -92,13 +92,13 @@ const TodoList = () => {
         <table id="todo_table" className="table w-full">
           <thead>
             <tr>
-              <th className="text-center px-1 py-2 bg-orange-500 text-orange-100 rounded-tl-xl">
+              <th className="text-center px-1 py-2 bg-black text-gray-100 rounded-tl-xl">
                 #
               </th>
-              <th className="text-left px-1 py-2 bg-orange-500 text-orange-100">
+              <th className="text-left px-1 py-2 bg-black text-gray-100">
                 Details
               </th>
-              <th className=" px-1 py-2 bg-orange-500 text-orange-100 rounded-tr-xl">
+              <th className=" px-1 py-2 bg-black text-gray-100 rounded-tr-xl">
                 Action
               </th>
             </tr>
@@ -108,16 +108,16 @@ const TodoList = () => {
               list.map((item, index) => {
                 return (
                   <tr
-                    className=" bg-orange-50 transition duration-300"
+                    className=" bg-gray-50 transition duration-300"
                     key={index}
                   >
-                    <td className="text-center  px-1 py-2 text-orange-800">
+                    <td className="text-center  px-1 py-2 text-gray-800">
                       {index + 1}
                     </td>
-                    <td className=" px-1 py-2 text-orange-800">{item.task}</td>
-                    <td className="text-center  px-1 py-2 text-orange-800 flex gap-3 justify-center">
+                    <td className=" px-1 py-2 text-gray-800">{item.task}</td>
+                    <td className="text-center  px-1 py-2 text-gray-800 flex gap-3 justify-center">
                       <button
-                        className="text-orange-600"
+                        className="text-gray-600"
                         onClick={() => handleDelete(item.id)}
                       >
                         <svg
@@ -126,11 +126,11 @@ const TodoList = () => {
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
-                          stroke-width="2"
+                          strokeWidth="2"
                         >
                           <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                           />
                         </svg>
