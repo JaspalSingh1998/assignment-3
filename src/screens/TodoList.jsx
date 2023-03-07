@@ -57,7 +57,7 @@ const TodoList = () => {
       });
   };
   return (
-    <div className="mt-10 shadow-md border border-black p-8 rounded-md">
+    <div className="mt-10 shadow-md shadow-gray-300 p-8 rounded-md">
       <p className="text-center font-bold text-lg mb-4">Todo List</p>
       <form className="flex justify-center mb-10">
         <input
