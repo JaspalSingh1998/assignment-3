@@ -4,7 +4,7 @@ import SingleColor from "../components/SingleColor";
 
 const Colors = () => {
   const [color, setColor] = useState("");
-  const [list, setList] = useState(new Values("#f15025").all(10));
+  const [list, setList] = useState(new Values("#f15025").all(10)); // array of colors that will be shown
   const [error, setError] = useState("");
   const colorInputRef = useRef(null);
 
@@ -12,8 +12,8 @@ const Colors = () => {
     e.preventDefault();
 
     try {
-      const colors = new Values(color).all(10);
-      setList(colors);
+      const colors = new Values(color).all(10); // this will user entered color and using values library shades will be generated
+      setList(colors); // newly generated shades will be stored in list hook
       colorInputRef.current.value = "";
       setError("");
     } catch (error) {

@@ -7,6 +7,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { toast } from 'react-toastify';
 
 const SignUp = () => {
+  // hooks for handling form data
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,10 +19,12 @@ const SignUp = () => {
     e.preventDefault();
     setError('');
     try {
+      // signup will happen here
       await createUser(email, password)
       updateProfile(auth.currentUser, {
         displayName: name
       }).then(() => {
+        // once user is registered its data will also be stored in users collection in firebase
         setDoc(doc(firestore, "users", auth.currentUser.uid), {
           name,
           email,

@@ -22,6 +22,7 @@ const Weather = () => {
         getWeather(searchTerm)
       }
     
+      // api call to get weather data
       const getWeather = async (location) => {
         setWeatherData([])
         let how_to_search = (typeof location === 'string') ? `q=${location}` : `lat=${location[0]}&lon=${location[1]}`
@@ -42,6 +43,7 @@ const Weather = () => {
         }
       }
     
+      // if user has allowed location access in broswer then current location will be used
       const myIP = (location) => {
         const {latitude, longitude} = location.coords
         getWeather([latitude, longitude])

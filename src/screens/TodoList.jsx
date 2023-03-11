@@ -11,11 +11,14 @@ import { auth, firestore } from "../firebase";
 import { v4 as uuidv4 } from "uuid";
 
 const TodoList = () => {
-  const [task, setTask] = useState();
-  const [list, setList] = useState();
+  const [task, setTask] = useState(); // whatever we will type in textbox will be stored here
+  const [list, setList] = useState(); // will hold list of all the tasks stored in db
+
+  // method responsible for posting data into firebase db
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
+      // it will set our taks in tasks collection in firebase and uuid will be used as id of that task
       setDoc(doc(firestore, "tasks", uuidv4()), {
         task,
         user: auth.currentUser.uid,
@@ -30,6 +33,7 @@ const TodoList = () => {
     }
   };
 
+  // it will fetch all the task docs from the tasks collection
   const getTasks = async () => {
     const querySnapshot = await getDocs(collection(firestore, "tasks"));
     let tasks = [];
@@ -45,6 +49,7 @@ const TodoList = () => {
     getTasks();
   }, []);
 
+  // method for removing tasks from the firebase db
   const handleDelete = (id) => {
     deleteDoc(doc(firestore, "tasks", id))
       .then(() => {

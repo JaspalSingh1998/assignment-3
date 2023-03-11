@@ -9,12 +9,13 @@ import TodoList from "./TodoList";
 import Calculator from "./Calculator";
 
 const Home = () => {
-  const [weatherData, setWeatherData] = useState([]);
-  const [newsFeed, setNewsFeed] = useState([]);
-  const [matchData, setMatchData] = useState([]);
-  const [users, setUsers] = useState([]);
-  const { user } = UserAuth();
+  const [weatherData, setWeatherData] = useState([]); // hook responsible to hold weather data
+  const [newsFeed, setNewsFeed] = useState([]); // for displaying news headline
+  const [matchData, setMatchData] = useState([]); // this will hold data for cricket score
+  const [users, setUsers] = useState([]); // list of users registered with us on firebase
+  const { user } = UserAuth(); // destructred of user auth context from centralized place
 
+  // method to call weather api and set data in weatherData state
   async function getWeatherData() {
     const response = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=barrie&appId=750b011386fdd29775e397a29adb8333`
@@ -22,6 +23,7 @@ const Home = () => {
     setWeatherData(response.data);
   }
 
+  // network call for News API
   async function getNewsFeed() {
     const response = await axios.get(
       "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=37791e01876c47b29a7750e92b3f8f0d"
@@ -29,6 +31,8 @@ const Home = () => {
     setNewsFeed(response.data.articles);
   }
 
+
+  // Method to reterive all the registered users from firebase
   async function getAllUsers() {
     const collectionRef = collection(firestore, "users");
     const userSnap = await getDocs(collectionRef);
@@ -51,6 +55,7 @@ const Home = () => {
     setMatchData(data.matchHeader);
   }
 
+  // use effect will run everytime user visit our home page and will trigger api calls
   useEffect(() => {
     getAllUsers();
     getWeatherData();

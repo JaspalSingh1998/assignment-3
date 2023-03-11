@@ -6,12 +6,14 @@ import { UserAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
+  // array that will be used as nav items
   const menus = [
     { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
     { name: "Weather", link: "/weather", icon: HiOutlineSun },
     { name: "News", link: "/news", icon: HiNewspaper },
     { name: "Colors", link: "/colors", icon: HiColorSwatch },
   ];
+  // hook to keep track of navigation status in mobile view
   const [open, setOpen] = useState(true);
 
   const { logout, user } = UserAuth();
